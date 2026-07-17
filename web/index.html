@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Will AI cite this? · Free AI Citability Grader for your content · SEOryon</title>
+  <meta name="description" content="Paste your article and get a Citability Score — a heuristic grade of whether AI search engines (ChatGPT, Perplexity, Gemini, Google AI) are likely to quote your content, plus a prioritized rewrite fix-list. Runs entirely in your browser. By SEOryon." />
+  <meta name="keywords" content="AI citability, will AI cite my content, GEO, generative engine optimization, AEO, answer engine optimization, ChatGPT citation, Perplexity citation, content grader, FAQ content, AI search" />
+  <meta property="og:title" content="Will AI cite this? · Free AI Citability Grader" />
+  <meta property="og:description" content="Paste your writing and see whether AI search engines are likely to quote it — with a specific, copy-paste fix-list to make it citable. Free, runs in your browser." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cite.seoryon.com" />
+  <meta property="og:image" content="https://cite.seoryon.com/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://cite.seoryon.com" />
+  <link rel="alternate" hreflang="en" href="https://cite.seoryon.com/" />
+  <link rel="alternate" hreflang="de" href="https://cite.seoryon.com/?lang=de" />
+  <link rel="alternate" hreflang="fr" href="https://cite.seoryon.com/?lang=fr" />
+  <link rel="alternate" hreflang="x-default" href="https://cite.seoryon.com/" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SEOryon AI Citability Grader",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "url": "https://cite.seoryon.com",
+      "description": "Free client-side tool that grades whether AI search engines are likely to cite a piece of writing, based on the documented content factors that drive AI citations, and returns a prioritized rewrite fix-list.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "creator": { "@type": "Organization", "name": "SEOryon", "url": "https://seoryon.com" }
+    }
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <a href="https://app.seoryon.com/?utm_source=citability-grader&utm_medium=brand" class="brand" aria-label="SEOryon">
+      <img src="/logo.png" class="logo-img" alt="SEOryon" />
+    </a>
+    <nav class="navlinks">
+      <a href="#how" class="nav-secondary" data-i18n="nav_how">How it works</a>
+      <a href="#faq" class="nav-secondary" data-i18n="nav_faq">FAQ</a>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="de">DE</button>
+        <button type="button" class="lang-btn" data-lang="fr">FR</button>
+      </div>
+      <a href="https://app.seoryon.com/signup?utm_source=citability-grader&utm_medium=topbar&utm_campaign=trial" class="cta-link" data-i18n="cta_trial">Start free trial →</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <!-- Two-column hero: headline + sub on the left, product preview on the
+           right — mirrors score / inspect / roi so the free-tool family stays
+           visually consistent. Drop a hero image at web/citehero.png. -->
+      <div class="hero-top">
+        <div class="hero-content">
+          <div class="hero-meta">
+            <span class="status-dot"></span>
+            <span class="status-text" data-i18n="hero_pill">Runs in your browser · Paste-only · Free</span>
+          </div>
+          <h1 data-i18n-html="hero_h1">Will AI actually <span class="brand-text">cite your content?</span></h1>
+          <p class="sub" data-i18n="hero_sub">Paste your article and get a Citability Score — a plain-English read on whether ChatGPT, Perplexity, Gemini and Google's AI are likely to quote you. Then get a specific, copy-paste fix-list to make it citable. Nothing is uploaded.</p>
+        </div>
+        <figure class="hero-visual">
+          <img src="/citehero.png" alt="Preview of the SEOryon AI Citability Grader — a citability score out of 100, a per-factor breakdown, and a prioritized rewrite fix-list." data-i18n-alt="hero_img_alt" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- The grader: paste box on the left, the live result card on the right. -->
+    <section class="calc" aria-label="AI citability grader">
+      <div class="calc-grid">
+        <form id="citeForm" class="calc-card input-card" autocomplete="off">
+          <h2 class="card-kicker" data-i18n="inp_legend">Your content</h2>
+
+          <div class="field">
+            <label for="targetQ" data-i18n-html="q_label">Question your content should answer <span class="opt">(optional)</span></label>
+            <input id="targetQ" name="targetQ" type="text" maxlength="200" placeholder="e.g. What is generative engine optimization?" data-i18n-ph="q_ph" />
+            <p class="field-help" data-i18n="q_help">If you give one, we check whether your content answers it up front — the way an AI extracts an answer.</p>
+          </div>
+
+          <div class="field">
+            <label for="content" data-i18n="content_label">Paste your article or content</label>
+            <textarea id="content" name="content" rows="14" spellcheck="false" placeholder="Paste the full text of your article, page, or draft here…" data-i18n-ph="content_ph"></textarea>
+            <div class="field-foot">
+              <span class="wordcount" id="wordcount" data-i18n="wc_empty">No content yet</span>
+              <button type="button" class="linkbtn" id="sampleBtn" data-i18n="sample_btn">Try a sample →</button>
+            </div>
+          </div>
+
+          <p class="assumptions-note" data-i18n-html="assumptions_note">This grades the <strong>writing</strong> — structure, answer-first phrasing, data, scannability. It does not check your live page's code or SEO tags (that's a different job — see below).</p>
+        </form>
+
+        <section class="calc-card result-card" id="result" aria-live="polite">
+          <!-- rendered by app.js -->
+        </section>
+      </div>
+
+      <p class="calc-privacy">
+        <span aria-hidden="true">🔒</span>
+        <span data-i18n="calc_privacy">This grader runs entirely in your browser. Your content is never sent to a server, stored, or shared.</span>
+      </p>
+    </section>
+
+    <!-- Cross-link: establishes the score-vs-cite distinction as complementary. -->
+    <section class="crosslink">
+      <div class="crosslink-card">
+        <div class="crosslink-text">
+          <span class="crosslink-kicker" data-i18n="cross_kicker">CHECKING A LIVE PAGE?</span>
+          <p data-i18n-html="cross_body">This tool grades your <strong>writing</strong>. To check a <strong>live page's</strong> technical AI-search health — crawlability, schema, meta and on-page signals — use its companion.</p>
+        </div>
+        <a class="crosslink-cta" href="https://score.seoryon.com" data-i18n="cross_cta">Score a live page at score.seoryon.com →</a>
+      </div>
+    </section>
+
+    <section class="how" id="how">
+      <h2 data-i18n="how_h2">How it works</h2>
+      <div class="grid3">
+        <div class="card">
+          <div class="num">1</div>
+          <h3 data-i18n="how1_h3">You paste your content</h3>
+          <p data-i18n="how1_p">Drop in an article, page, or draft — optionally the question it should answer. Nothing is uploaded; the text stays in your browser.</p>
+        </div>
+        <div class="card">
+          <div class="num">2</div>
+          <h3 data-i18n="how2_h3">We grade it, live</h3>
+          <p data-i18n="how2_p">A transparent, rule-based check scores the factors AI engines favour when they pick what to quote — answer-first phrasing, Q&A structure, data, scannability, clarity.</p>
+        </div>
+        <div class="card">
+          <div class="num">3</div>
+          <h3 data-i18n="how3_h3">You get a fix-list</h3>
+          <p data-i18n="how3_p">A prioritized, copy-paste list of concrete rewrites — the biggest gaps first — so you know exactly what to change to become more citable.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Transparency: exactly what's scored, and why it's a heuristic. Honest by design. -->
+    <section class="learn" id="method">
+      <span class="learn-kicker" data-i18n="method_kicker">HOW THIS IS SCORED</span>
+      <h2 data-i18n="method_h2">A heuristic, shown in the open.</h2>
+      <p class="learn-lead" data-i18n-html="method_lead">This is not a guarantee of citation — no tool can promise that. It's a transparent estimate based on the <em>structural content factors</em> that research ties to being cited by AI engines. Studies of generative-engine and answer-engine optimization find that a handful of these factors explain most of the difference between content that gets quoted and content that gets skipped. We score each one and weight them into a single 0–100 grade.</p>
+      <div class="learn-grid">
+        <div class="learn-card">
+          <h3 data-i18n="method_c1_h">Answer-first</h3>
+          <p data-i18n="method_c1_p">AI engines lift the answer from near the top. We check whether your content leads with a direct answer instead of a long wind-up — and, if you gave a target question, whether it's answered early.</p>
+        </div>
+        <div class="learn-card">
+          <h3 data-i18n="method_c2_h">Q&amp;A / FAQ structure</h3>
+          <p data-i18n="method_c2_p">Question-shaped headings with self-contained answers are cited far more often. We detect question headings and whether each is followed by a clean, standalone answer.</p>
+        </div>
+        <div class="learn-card">
+          <h3 data-i18n="method_c3_h">Extractable passages &amp; data</h3>
+          <p data-i18n="method_c3_p">Quotable, self-contained sentences and concrete numbers and stats give an engine something to cite. Vague, context-dependent prose gives it nothing to lift.</p>
+        </div>
+        <div class="learn-card">
+          <h3 data-i18n="method_c4_h">Scannability &amp; clarity</h3>
+          <p data-i18n="method_c4_p">Clear headings, lists and short declarative sentences help. Readability is scored with a standard formula (English-tuned; for DE/FR we fall back to a language-agnostic length measure and say so).</p>
+        </div>
+      </div>
+      <p class="method-note" data-i18n-html="method_note">The weights are documented in the tool's source and shown per factor in your result. Factor selection follows the public findings behind generative-engine optimization (GEO) and answer-engine optimization (AEO) — the same rules used by open-source auditors like <span class="nowrap">Auriti-Labs/geo-optimizer</span> and <span class="nowrap">Canonry/aeo-audit</span>. We reimplemented the rules in our own code; we round every score so it never fakes precision.</p>
+    </section>
+
+    <section class="upsell">
+      <div class="upsell-card">
+        <div class="upsell-left">
+          <span class="oryon-tag">SEORYON</span>
+          <h2 data-i18n-html="upsell_h2">The grade shows the gap. <span class="brand-text">SEOryon writes content that's already citable.</span></h2>
+          <p data-i18n="upsell_p">This grader tells you what to fix. SEOryon does it for you — it writes content that's structured to be cited by AI from the first draft: answer-first, Q&amp;A-shaped, backed with data, and clean to scan. It reads real search and AI-citation signals, decides what to publish, writes it, and tracks where you get cited across Google, ChatGPT, Perplexity and Gemini.</p>
+          <a href="https://app.seoryon.com/signup?utm_source=citability-grader&utm_medium=upsell&utm_campaign=trial" class="bigcta" data-i18n="upsell_cta">Start your 3-day free trial →</a>
+          <p class="microcopy" data-i18n="upsell_fine">3-day free trial · 3 published articles · 1 in-depth LLM/GEO audit · Cancel in two clicks.</p>
+        </div>
+        <div class="upsell-right">
+          <div class="upsell-benefit">
+            <h4 data-i18n="ben1_h">Citable by default</h4>
+            <p data-i18n="ben1_p">Every article ships answer-first, Q&amp;A-structured and data-backed — the shape AI engines quote — without you rewriting it.</p>
+          </div>
+          <div class="upsell-benefit">
+            <h4 data-i18n="ben2_h">Agency-scale, not agency-price</h4>
+            <p data-i18n="ben2_p">One agent runs the whole research-to-publish loop, so you get the output of a content team from €39/month.</p>
+          </div>
+          <div class="upsell-benefit">
+            <h4 data-i18n="ben3_h">You see where you're cited</h4>
+            <p data-i18n="ben3_p">It tracks your mentions across Google, ChatGPT, Perplexity and Gemini — so the grade becomes a scoreboard.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <h2 data-i18n="faq_h2">Questions, answered</h2>
+      <div class="faq-group">
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary data-i18n="faq1_q">Is the Citability Score a guarantee my content will be cited?</summary>
+            <p data-i18n-html="faq1_a">No — and any tool that claims to guarantee AI citation is bluffing. The score is a heuristic estimate based on the structural factors research ties to being cited (answer-first phrasing, Q&amp;A structure, extractable passages, data, scannability, clarity). It tells you how well your writing is <em>shaped</em> to be quoted; whether an engine actually quotes it also depends on your topic, authority, and competition.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq2_q">How is this different from score.seoryon.com?</summary>
+            <p data-i18n-html="faq2_a">They're companions. score.seoryon.com checks a <strong>live URL's</strong> technical AI-search health — crawlability, meta tags, schema, on-page signals. This tool grades the <strong>writing itself</strong> — is the prose structured and phrased to be quoted. One is the page layer, one is the content layer. Use both.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq3_q">What exactly does it check?</summary>
+            <p data-i18n-html="faq3_a">Seven content factors: whether you answer up front, Q&amp;A / FAQ structure, whether passages are self-contained and extractable, statistical / data density, heading and list scannability, readability, and the presence of short direct-answer sentences. Each gets a pass / warn / fail with a one-line reason, and every failing factor becomes a fix in your list.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq4_q">Does it send my content anywhere?</summary>
+            <p data-i18n-html="faq4_a">No. There is no server, no API, no upload. The scoring runs as plain JavaScript in your browser, and your text never leaves the page. The only thing stored is your language choice, kept locally in your browser.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq5_q">Does it work for German and French content?</summary>
+            <p data-i18n-html="faq5_a">Yes. The structural checks (answer-first, question headings, self-contained passages, data density, scannability) are language-agnostic. Readability uses an English-tuned formula for English and a language-agnostic length measure for German and French — we flag which one was used in your result so nothing is hidden.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq6_q">Why does the same text always get the same score?</summary>
+            <p data-i18n-html="faq6_a">Because the scoring is deterministic rules, not an AI model. The same content always produces the same grade and the same fix-list — so you can edit, re-paste, and watch the score move as you improve it.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>
+        <span class="wordmark sm">SEOryon</span> ·
+        <a href="https://app.seoryon.com/?utm_source=citability-grader&utm_medium=footer">app.seoryon.com</a> ·
+        <a href="https://score.seoryon.com" data-i18n="footer_score">Score a live page</a> ·
+        <a href="https://roi.seoryon.com" data-i18n="footer_roi">SEO ROI calculator</a>
+      </div>
+      <p class="microcopy" data-i18n="footer_note">A free AI citability grader by SEOryon — your organic growth engine. The score is a heuristic estimate that runs entirely in your browser; nothing is sent to a server.</p>
+    </footer>
+  </main>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>

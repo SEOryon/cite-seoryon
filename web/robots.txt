@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cite.seoryon.com/sitemap.xml

@@ -1,0 +1,26 @@
+# SEOryon AI Citability Grader
+
+> Free, browser-based grader for whether AI search engines will cite your content.
+> Paste an article and it returns a Citability Score — a heuristic grade of how
+> likely ChatGPT, Perplexity, Gemini, and Google's AI are to quote you — plus a
+> prioritized, concrete rewrite fix-list. No signup, no upload, nothing sent to a
+> server. Built by SEOryon.
+
+The grader runs entirely client-side: your text is analyzed in the browser and
+never leaves the page. It scores the passage-level, answer-first,
+clearly-attributed structure that AI engines pull into their answers, then tells
+you exactly what to change to raise the score.
+
+## Docs
+
+- [The grader](https://cite.seoryon.com): the tool itself — paste text, get a score and fix-list
+- [How it works](https://cite.seoryon.com/#how): the factors behind the Citability Score
+- [FAQ](https://cite.seoryon.com/#faq): what the score measures and how to act on it
+
+## Related tools
+
+- [AI Search Readiness Score](https://score.seoryon.com): score any URL 0–100 across 27 deterministic AI-search signals, with concrete fixes
+- [SEO ROI calculator](https://roi.seoryon.com): what organic traffic is worth, in your numbers
+- [Schema & FAQ generator](https://schema.seoryon.com): build valid JSON-LD structured data from a simple form
+- [Inspect](https://inspect.seoryon.com): free Chrome extension auditing any page's on-page SEO and AI-search readiness in one click
+- [SEOryon](https://seoryon.com): the company behind these tools
