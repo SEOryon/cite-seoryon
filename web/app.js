@@ -383,7 +383,7 @@
       ben1_h: "Citable by default",
       ben1_p: "Every article ships answer-first, Q&A-structured and data-backed — the shape AI engines quote — without you rewriting it.",
       ben2_h: "Agency-scale, not agency-price",
-      ben2_p: "One agent runs the whole research-to-publish loop, so you get the output of a content team from €39/month.",
+      ben2_p: "One agent runs the whole research-to-publish loop, so you get the output of a content team from €49/month.",
       ben3_h: "You see where you're cited",
       ben3_p: "It tracks your mentions across Google, ChatGPT, Perplexity and Gemini — so the grade becomes a scoreboard.",
 
@@ -529,7 +529,7 @@
       ben1_h: "Standardmäßig zitierbar",
       ben1_p: "Jeder Artikel erscheint mit Antwort zuerst, Q&A-strukturiert und datengestützt — die Form, die KI-Maschinen zitieren — ohne dass du umschreibst.",
       ben2_h: "Agenturniveau, kein Agenturpreis",
-      ben2_p: "Ein Agent führt den gesamten Kreislauf von Recherche bis Veröffentlichung, du bekommst den Output eines Content-Teams ab 39 €/Monat.",
+      ben2_p: "Ein Agent führt den gesamten Kreislauf von Recherche bis Veröffentlichung, du bekommst den Output eines Content-Teams ab 49 €/Monat.",
       ben3_h: "Du siehst, wo du zitiert wirst",
       ben3_p: "Es verfolgt deine Erwähnungen bei Google, ChatGPT, Perplexity und Gemini — so wird der Wert zur Anzeigetafel.",
 
@@ -671,7 +671,7 @@
       ben1_h: "Citable par défaut",
       ben1_p: "Chaque article part réponse-d'abord, structuré en Q&R et appuyé par des données — la forme que les moteurs IA citent — sans que vous réécriviez.",
       ben2_h: "Échelle d'agence, pas prix d'agence",
-      ben2_p: "Un seul agent gère toute la boucle recherche-à-publication : vous obtenez la production d'une équipe de contenu à partir de 39 €/mois.",
+      ben2_p: "Un seul agent gère toute la boucle recherche-à-publication : vous obtenez la production d'une équipe de contenu à partir de 49 €/mois.",
       ben3_h: "Vous voyez où vous êtes cité",
       ben3_p: "Il suit vos mentions sur Google, ChatGPT, Perplexity et Gemini — la note devient un tableau de bord.",
 
